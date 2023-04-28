@@ -1,44 +1,62 @@
 import React, { useState, useContext } from 'react'
+import { Navbar } from '../components/Navbar'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import { AuthContex } from '../Index'
+import { AuthContext } from '../Index'
 
 export const LoginPage = () => {
-  const { loggedIn, setLoggedIn } = useContext(AuthContex);
-  const navigate = useNavigate()
+   const { loggedIn, setLoggedIn, setDataUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     username: '',
     password: ''
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e)=>{
     setForm({
       ...form,
       [e.target.name]: e.target.value
     })
   }
 
-  const Login = async (e) => {
-    try {
+  const logIn = async(e)=>{
+    try{
       e.preventDefault()
       const { data } = await axios.post('http://localhost:3000/user/login', form)
-      if (data.message) {
+      console.log(data.userLogged)
+      if(data.message){
         alert(data.message)
         localStorage.setItem('token', data.token)
+        setDataUser(data.userLogged)
         setLoggedIn(true)
         navigate('/dashboard')
-      }
-    } catch (err) {
-      console.error(err);
-      alert('Error no datos')
+      }      
+    }catch(err){
+      console.log(err)
+      alert(err.response?.data.message)
+      throw new Error('Error in login')
     }
   }
-
   return (
     <>
-      <h1>Login</h1>
+      <Navbar></Navbar>
+      <div className='container'>
+      <h2 className='text-center'>LogIn</h2>
+      <form className='m-5 text-center'>
+        <div className="mb-3">
+          <label className='form-label' htmlFor="">Username</label>
+          <input onChange={handleChange} name='username' className='form-control' type="text" />
+        </div>
+        <div className="mb-3">
+          <label className='form-label' htmlFor="">Password</label>
+          <input onChange={handleChange} name='password' className='form-control' type="password" />
+        </div>
+        <button onClick={(e)=> logIn(e)} className='btn btn-success'>
+          LogIn
+        </button>
+      </form>
+      </div>
     </>
   )
 }
