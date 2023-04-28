@@ -4,6 +4,7 @@ import { NotFound } from './pages/NotFound';
 import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import App from './App'
+// import { AccountPage } from './pages/AccountPage/addAccountPage';
 
 export const AuthContex = createContext();
 export const Index = () => {
@@ -27,7 +28,11 @@ export const Index = () => {
                 {
                     path: '/login',
                     element: <LoginPage></LoginPage>
-                },
+                }
+                // {
+                //     path: '/account',
+                //     element: <AccountPage></AccountPage>
+                // }
             ]
         }
     ])
