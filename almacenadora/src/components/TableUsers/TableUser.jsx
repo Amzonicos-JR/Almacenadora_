@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { User } from "./User";
 import axios from "axios";
-import imgLoading from '../../assets/loading.gif'
 import { Link } from "react-router-dom";
 
 export const Table = ()=>{
@@ -33,11 +32,6 @@ export const Table = ()=>{
 
     //useEffect -> manejo de efectos (actualización del componente) / (DOM)
     useEffect(()=> getUsers, [])
-    if(loading){
-        return(
-            <img src={imgLoading} alt="Loading..." />
-        )
-    }
     
     return (
         <>  

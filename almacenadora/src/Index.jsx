@@ -5,10 +5,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { UsersPage } from './pages/UsersPage/UsersPage'
 import App from './App'
-<<<<<<< HEAD
-=======
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
->>>>>>> asumpango-2018373
 // import { AccountPage } from './pages/AccountPage/addAccountPage';
 
 export const AuthContext = createContext();
@@ -38,8 +35,6 @@ export const Index = () => {
                 {
                     path: '/login',
                     element: <LoginPage></LoginPage>
-<<<<<<< HEAD
-=======
                 },
                 {
                     path: '/dashboard',
@@ -50,7 +45,6 @@ export const Index = () => {
                             element: <UsersPage></UsersPage>
                         }
                     ]
->>>>>>> asumpango-2018373
                 }
                 // {
                 //     path: '/account',
