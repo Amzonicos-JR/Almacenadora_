@@ -36,15 +36,7 @@ export const HomePage = () => {
                         <a href="#">Servicios</a>
                         <a href="#">Contacto</a>
                         <Link to='/login'>
-<<<<<<< HEAD
-<<<<<<< HEAD
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
-=======
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
->>>>>>> asumpango-2018373
-=======
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
->>>>>>> jsis-2018520
                                 <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8zm5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707l-4.096 4.096z" />
                             </svg>
                         </Link>
@@ -71,10 +63,6 @@ export const HomePage = () => {
                         </div>
                     </section>
                     <section id='Carrousel'>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> jsis-2018520
                         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -101,99 +89,6 @@ export const HomePage = () => {
                                     <div class="carousel-caption d-none d-md-block">
                                         <h5>Bodega Los Amigos</h5>
                                         <p>Zona 2, Ciudad de Guatemala</p>
-<<<<<<< HEAD
-=======
-                        <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
-                            <div className="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div className="carousel-inner">
-                                <div className="carousel-item active">
-                                    <img src={cb2} className="d-block w-100" alt="..." />
-                                    <div className="carousel-caption d-none d-md-block">
-                                        <h5>Bodega Manzanos</h5>
-                                        <p>Zona 4, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="carousel-item">
-                                    <img src={cb4} className="d-block w-100" alt="..." />
-                                    <div className="carousel-caption d-none d-md-block">
-                                        <h5>Bodega Viñas de Cristal</h5>
-                                        <p>Zona 10, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="carousel-item">
-                                    <img src={cb5} className="d-block w-100" alt="..." />
-                                    <div className="carousel-caption d-none d-md-block">
-                                        <h5>Bodega Los Amigos</h5>
-                                        <p>Zona 2, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span className="visually-hidden">Previous</span>
-                            </button>
-                            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span className="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </section>
-                    <section className="clientes contenedor">
-                        <h2 className="titulo">Que dicen nuestros clientes</h2>
-                        <div className="cards">
-                            <div className="card">
-                                <img src={cliente1} alt="" />
-                                <div className="contenido-texto-card">
-                                    <h4>Jennifer Peréz</h4>
-                                    <p>Excelente servicio, estoy muy satisfecha con la seguridad</p>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <img src={cliente2} alt="" />
-                                <div className="contenido-texto-card">
-                                    <h4>Andrea Casas</h4>
-                                    <p>Muy satisfecha con el servicio y el personal</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section className="portafolio">
-                        <div className="contenedor">
-                            <h2 className="titulo">Nuestras bodegas mas populares:</h2>
-                            <div className="galeria-port">
-                                <div className="imagen-port">
-                                    <img src={b1} alt="" />
-                                    <div className="hover-galeria">
-                                        <p>Bodega "El Sol"</p>
-                                        <p>Zona 4, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="imagen-port">
-                                    <img src={b2} alt="" />
-                                    <div className="hover-galeria">
-                                        <p>Bodega "Maderos"</p>
-                                        <p>Zona 6, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="imagen-port">
-                                    <img src={b3} alt="" />
-                                    <div className="hover-galeria">
-                                        <p>Bodega "La luz"</p>
-                                        <p>Zona 14, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="imagen-port">
-                                    <img src={b4} alt="" />
-                                    <div className="hover-galeria">
-                                        <p>Bodega "El Mar"</p>
-                                        <p>Zona 3, Ciudad de Guatemala</p>
->>>>>>> asumpango-2018373
-=======
->>>>>>> jsis-2018520
                                     </div>
                                 </div>
                             </div>
@@ -207,10 +102,6 @@ export const HomePage = () => {
                             </button>
                         </div>
                     </section>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> jsis-2018520
                     <section class="clientes contenedor">
                         <h2 class="titulo">Que dicen nuestros clientes</h2>
                         <div class="cards">
@@ -270,42 +161,16 @@ export const HomePage = () => {
                             <h2 class="titulo">Nuestros servicios</h2>
                             <div class="servicio-cont">
                                 <div class="servicio-ind">
-<<<<<<< HEAD
-=======
-                    <section className="about-services">
-                        <div className="contenedor">
-                            <h2 className="titulo">Nuestros servicios</h2>
-                            <div className="servicio-cont">
-                                <div className="servicio-ind">
->>>>>>> asumpango-2018373
-=======
->>>>>>> jsis-2018520
                                     <img src={camara} alt="" />
                                     <h3>Seguridad Mejorada</h3>
                                     <p>Contamos con un servicio de cámaras de seguridad que graban las 24 hrs del dia y graban los 7 dias de la semana</p>
                                 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
                                 <div class="servicio-ind">
-=======
-                                <div className="servicio-ind">
->>>>>>> asumpango-2018373
-=======
-                                <div class="servicio-ind">
->>>>>>> jsis-2018520
                                     <img src={aire} alt="" />
                                     <h3>Aire Acondicionado</h3>
                                     <p>Contamos con el servicio de aire acondicionado profesional</p>
                                 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
                                 <div class="servicio-ind">
-=======
-                                <div className="servicio-ind">
->>>>>>> asumpango-2018373
-=======
-                                <div class="servicio-ind">
->>>>>>> jsis-2018520
                                     <img src={carro} alt="" />
                                     <h3>Transporte</h3>
                                     <p>Contamos con una solución rápida, segura, confiable y eficiente para que nuestros clientes puedan trasladar sus productos</p>
