@@ -47,15 +47,15 @@ export const Lease = ({
           <li className="list-group-item">{email}</li>
         </ul>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">Cellar {nameCellar}</li>
+        <li className="list-group-item">Cellar {nameCellar}</li>
           <li className="list-group-item">{location}</li>
           <li className="list-group-item">{price}</li>
         </ul>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">User {nameUser}</li>
+        <li className="list-group-item">User {nameUser}</li>
           <li className="list-group-item">{surnameUser}</li>
           <li className="list-group-item">{username}</li>
-          <li className="list-group-item">{total}</li>
+          <li className="list-group-item">{total}</li>          
         </ul>
 
         <div className="card-body">

@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Index";
 import { Outlet, Link } from "react-router-dom";
 import { UsersPage } from "../UsersPage/UsersPage";
-import { CellarsPage } from "../CellarsPage/CellarsPage";
 import { LeasesPage } from "../LeasesPage/LeasesPage";
+import CellarPage from "../CellarPage/CellarPage";
 
 
 export const DashboardPage = () => {
@@ -18,7 +18,7 @@ export const DashboardPage = () => {
   const [showScene, setShowScene] = useState({
     cellar: false,
     lease: false,
-    user: false,
+    user: false
   });
 
   const logOut = () => {
@@ -29,9 +29,9 @@ export const DashboardPage = () => {
 
   const handleScene = (scene) => {
     setShowScene({
-      user: scene === "user",
       cellar: scene === "cellar",
       lease: scene === "lease",
+      user: scene === "user"
     });
 
     setActiveView(scene);
@@ -51,7 +51,11 @@ export const DashboardPage = () => {
               </button>
             </li>
             <li>
-              <button>
+              <button
+                onClick={() => {
+                  handleScene("user");
+                }}
+              >
                 <span className="text">USER</span>
               </button>
             </li>
@@ -73,15 +77,6 @@ export const DashboardPage = () => {
                     }}
                   >
                     <span className="text"> ARRENDAMIENTOS </span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      handleScene("user");
-                    }}
-                  >
-                    <span className="text"> WORKERS </span>
                   </button>
                 </li>
               </>
@@ -107,9 +102,9 @@ export const DashboardPage = () => {
           {isAdmin ? (
             <>
               <section id="content">
+                {activeView === "cellar" && <CellarPage />}
                 {activeView === "lease" && <LeasesPage />}
-                {activeView === "cellar" && <CellarsPage />}
-                {activeView === "user" && <UsersPage />}
+                {activeView === "user" && <UsersPage/>}
               </section>
             </>
           ) : (
