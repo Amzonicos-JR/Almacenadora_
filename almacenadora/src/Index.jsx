@@ -7,6 +7,7 @@ import { UsersPage } from './pages/UsersPage/UsersPage'
 import { LeasesPage } from './pages/LeasesPage/LeasesPage'
 import App from './App'
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
+import { AddCellar } from './pages/CellarPage/AddCellar';
 // import { AccountPage } from './pages/AccountPage/addAccountPage';
 
 export const AuthContext = createContext();
@@ -44,8 +45,8 @@ export const Index = () => {
                         {
                             path: 'users',
                             element: <UsersPage></UsersPage>
-                        }
-                    ]
+                        },                    
+                    ] 
                 }
                 // {
                 //     path: '/account',
