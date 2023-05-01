@@ -4,6 +4,7 @@ import { NotFound } from './pages/NotFound';
 import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { UsersPage } from './pages/UsersPage/UsersPage'
+import { LeasesPage } from './pages/LeasesPage/LeasesPage'
 import App from './App'
 <<<<<<< HEAD
 =======
