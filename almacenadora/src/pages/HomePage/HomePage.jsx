@@ -37,10 +37,14 @@ export const HomePage = () => {
                         <a href="#">Contacto</a>
                         <Link to='/login'>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
 =======
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
 >>>>>>> asumpango-2018373
+=======
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
+>>>>>>> jsis-2018520
                                 <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8zm5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707l-4.096 4.096z" />
                             </svg>
                         </Link>
@@ -68,6 +72,9 @@ export const HomePage = () => {
                     </section>
                     <section id='Carrousel'>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> jsis-2018520
                         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -94,6 +101,7 @@ export const HomePage = () => {
                                     <div class="carousel-caption d-none d-md-block">
                                         <h5>Bodega Los Amigos</h5>
                                         <p>Zona 2, Ciudad de Guatemala</p>
+<<<<<<< HEAD
 =======
                         <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-indicators">
@@ -184,6 +192,8 @@ export const HomePage = () => {
                                         <p>Bodega "El Mar"</p>
                                         <p>Zona 3, Ciudad de Guatemala</p>
 >>>>>>> asumpango-2018373
+=======
+>>>>>>> jsis-2018520
                                     </div>
                                 </div>
                             </div>
@@ -198,6 +208,9 @@ export const HomePage = () => {
                         </div>
                     </section>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> jsis-2018520
                     <section class="clientes contenedor">
                         <h2 class="titulo">Que dicen nuestros clientes</h2>
                         <div class="cards">
@@ -257,6 +270,7 @@ export const HomePage = () => {
                             <h2 class="titulo">Nuestros servicios</h2>
                             <div class="servicio-cont">
                                 <div class="servicio-ind">
+<<<<<<< HEAD
 =======
                     <section className="about-services">
                         <div className="contenedor">
@@ -264,24 +278,34 @@ export const HomePage = () => {
                             <div className="servicio-cont">
                                 <div className="servicio-ind">
 >>>>>>> asumpango-2018373
+=======
+>>>>>>> jsis-2018520
                                     <img src={camara} alt="" />
                                     <h3>Seguridad Mejorada</h3>
                                     <p>Contamos con un servicio de cámaras de seguridad que graban las 24 hrs del dia y graban los 7 dias de la semana</p>
                                 </div>
 <<<<<<< HEAD
-                                <div class="servicio-ind">
-=======
-                                <div className="servicio-ind">
->>>>>>> asumpango-2018373
-                                    <img src={aire} alt="" />
-                                    <h3>Aire Acondicionado</h3>
-                                    <p>Contamos con el servicio de aire acondicionado profesional</p>
-                                </div>
 <<<<<<< HEAD
                                 <div class="servicio-ind">
 =======
                                 <div className="servicio-ind">
 >>>>>>> asumpango-2018373
+=======
+                                <div class="servicio-ind">
+>>>>>>> jsis-2018520
+                                    <img src={aire} alt="" />
+                                    <h3>Aire Acondicionado</h3>
+                                    <p>Contamos con el servicio de aire acondicionado profesional</p>
+                                </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                                <div class="servicio-ind">
+=======
+                                <div className="servicio-ind">
+>>>>>>> asumpango-2018373
+=======
+                                <div class="servicio-ind">
+>>>>>>> jsis-2018520
                                     <img src={carro} alt="" />
                                     <h3>Transporte</h3>
                                     <p>Contamos con una solución rápida, segura, confiable y eficiente para que nuestros clientes puedan trasladar sus productos</p>

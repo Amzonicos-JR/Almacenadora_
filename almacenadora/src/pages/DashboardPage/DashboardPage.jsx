@@ -7,6 +7,9 @@ import { UsersPage } from "../UsersPage/UsersPage";
 import { CellarsPage } from "../CellarsPage/CellarsPage";
 import { LeasesPage } from "../LeasesPage/LeasesPage";
 
+import { CellarsPage } from "../CellarsPage/CellarsPage";
+import { LeasesPage } from "../LeasesPage/LeasesPage";
+
 export const DashboardPage = () => {
   const { setLoggedIn, dataUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -27,7 +30,10 @@ export const DashboardPage = () => {
 
   const handleScene = (scene) => {
     setShowScene({
+<<<<<<< HEAD
       user: scene === "user",
+=======
+>>>>>>> jsis-2018520
       cellar: scene === "cellar",
       lease: scene === "lease",
     });
@@ -49,9 +55,13 @@ export const DashboardPage = () => {
               </button>
             </li>
             <li>
+<<<<<<< HEAD
               <button onClick={()=>{
                 handleScene("user");
               }}>
+=======
+              <button>
+>>>>>>> jsis-2018520
                 <span className="text">USER</span>
               </button>
             </li>
@@ -98,7 +108,10 @@ export const DashboardPage = () => {
           {isAdmin ? (
             <>
               <section id="content">
+<<<<<<< HEAD
                 {activeView === "user" && <UsersPage/>}
+=======
+>>>>>>> jsis-2018520
                 {activeView === "cellar" && <CellarsPage />}
                 {activeView === "lease" && <LeasesPage />}
               </section>
