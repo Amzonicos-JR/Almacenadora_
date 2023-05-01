@@ -33,13 +33,13 @@ export const LeasesPage = () => {
   return (
     <>
       <h1>Lease Page</h1>
-      {leases.map(({ _id, account, cellar, Services, user,  total }, i) => (
-        <Lease 
-            key={i}
-            account={account}
-            cellar={cellar}
-            user={user}
-            total={total} />
+      {leases.map(({ _id, account, cellar, Services, user, total }, i) => (
+        <Lease
+          key={i}
+          account={account}
+          cellar={cellar}
+          user={user}
+          total={total} />
       ))}
     </>
   );

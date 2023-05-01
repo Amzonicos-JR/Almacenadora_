@@ -18,6 +18,7 @@ export const DashboardPage = () => {
   const [showScene, setShowScene] = useState({
     cellar: false,
     lease: false,
+    user: false,
   });
 
   const logOut = () => {
@@ -28,11 +29,12 @@ export const DashboardPage = () => {
 
   const handleScene = (scene) => {
     setShowScene({
+      user: scene === "user",
       cellar: scene === "cellar",
       lease: scene === "lease",
     });
 
-    setActiveView(scene);    
+    setActiveView(scene);
   };
 
   return (
@@ -50,7 +52,6 @@ export const DashboardPage = () => {
             </li>
             <li>
               <button>
-
                 <span className="text">USER</span>
               </button>
             </li>
@@ -72,6 +73,15 @@ export const DashboardPage = () => {
                     }}
                   >
                     <span className="text"> ARRENDAMIENTOS </span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      handleScene("user");
+                    }}
+                  >
+                    <span className="text"> WORKERS </span>
                   </button>
                 </li>
               </>
@@ -97,8 +107,9 @@ export const DashboardPage = () => {
           {isAdmin ? (
             <>
               <section id="content">
-                {activeView === "cellar" && <CellarsPage />}
                 {activeView === "lease" && <LeasesPage />}
+                {activeView === "cellar" && <CellarsPage />}
+                {activeView === "user" && <UsersPage />}
               </section>
             </>
           ) : (

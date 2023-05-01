@@ -130,15 +130,11 @@ body
 }
 /* SIDEBAR */
 
-
-
-
-
 /* CONTENT */
 #content {
 	position: relative;
 	width: calc(100% - 280px);
-	left: 280px;
+	left: 150px;
 	transition: .3s ease;
 }
 #sidebar.hide ~ #content {
