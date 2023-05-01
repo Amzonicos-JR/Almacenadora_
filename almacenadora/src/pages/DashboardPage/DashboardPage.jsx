@@ -5,16 +5,19 @@ import { AuthContext } from "../../Index";
 import { Outlet, Link } from "react-router-dom";
 import { UsersPage } from "../UsersPage/UsersPage";
 
+import { CellarsPage } from "../CellarsPage/CellarsPage";
+import { LeasesPage } from "../LeasesPage/LeasesPage";
+
 export const DashboardPage = () => {
   const { setLoggedIn, dataUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [isAdmin, setIsAdmin] = useState(true)
+  const [isAdmin, setIsAdmin] = useState(true);
 
+  const [activeView, setActiveView] = useState(null);
 
-  const [form, setForm] = useState({
-    showUser: false,
-    showBodegas: false,
-    showClientes: false,
+  const [showScene, setShowScene] = useState({
+    cellar: false,
+    lease: false,
   });
 
   const logOut = () => {
@@ -23,26 +26,13 @@ export const DashboardPage = () => {
     navigate("/login");
   };
 
-  const reset = {
-    showUser: false,
-    showBodegas: false,
-    showClientes: false,
-  };
+  const handleScene = (scene) => {
+    setShowScene({
+      cellar: scene === "cellar",
+      lease: scene === "lease",
+    });
 
-  const handleChange = (e) => {
-    let resert2 = reset;
-    resert2[e] = true;
-    setForm(resert2);
-  };
-
-  const Pag = () => {
-    return form.showUser ? (
-      <UsersPage />
-    ) : form.showBodegas ? (
-      <UsersPage />
-    ) : (
-      <UsersPage />
-    );
+    setActiveView(scene);    
   };
 
   return (
@@ -59,34 +49,34 @@ export const DashboardPage = () => {
               </button>
             </li>
             <li>
-              <Link to="users">
-                <button onClick={()=>handleChange('showUsers')}>
-                  <span className="text">USERS</span>
-                </button>
-              </Link>
+              <button>
+                <span className="text">USER</span>
+              </button>
             </li>
-            {
-              (dataUser.role = "ADMIN" ? (
+            {isAdmin ? (
+              <>
                 <li>
-                  <Link to="users">
-                    <button onClick={()=>handleChange('showAnimal')}>
-                      <span className="text">AXEL</span>
-                    </button>
-                  </Link>
-                </li>
-              ) : (
-                <></>
-              ))
-            }
-            {
-              <li>
-                <Link to="users">
-                  <button>
-                    <span className="text">APPOINTMENT</span>
+                  <button
+                    onClick={() => {
+                      handleScene("cellar");
+                    }}
+                  >
+                    <span className="text">BODEGAS</span>
                   </button>
-                </Link>
-              </li>
-            }
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      handleScene("lease");
+                    }}
+                  >
+                    <span className="text"> ARRENDAMIENTOS </span>
+                  </button>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
           </ul>
           <ul className="side-menu top">
             <li>
@@ -101,34 +91,17 @@ export const DashboardPage = () => {
             </li>
           </ul>
         </section>
+
         <section id="content">
           {isAdmin ? (
-            <main>
-              <div className="head-title">
-                <div className="left">
-                  <h1>Control Administrador</h1>
-                </div>
-              </div>
-              <ul className="box-info">
-                <li>
-                  <span className="text">
-                    <h3>Users</h3>
-                  </span>
-                </li>
-                <li>
-                  <span className="text">
-                    <h3>Animals</h3>
-                  </span>
-                </li>
-                <li>
-                  <span className="text">
-                    <h3>Appointments</h3>
-                  </span>
-                </li>
-              </ul>
-            </main>
+            <>
+              <section id="content">
+                {activeView === "cellar" && <CellarsPage />}
+                {activeView === "lease" && <LeasesPage />}
+              </section>
+            </>
           ) : (
-            <div>{Pag()}</div>
+            <div></div>
           )}
         </section>
       </div>
