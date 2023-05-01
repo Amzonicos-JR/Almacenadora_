@@ -1,26 +1,40 @@
 import React from "react";
-import '../Cellar/Cellar.css'
+import "../Cellar/Cellar.css";
 
-
-export const Cellar = () =>{
-    return (
-        <>
-            <div className="card" style={{width: "18rem"}}>
-                {/* <img className="card-img-top" src="../../assets/bodega1.png" alt="Card image cap"/> */}
-                <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul className="list-group list-group-flush">
-                    <li className="list-group-item">Cras justo odio</li>
-                    <li className="list-group-item">Dapibus ac facilisis in</li>
-                    <li className="list-group-item">Vestibulum at eros</li>
-                  </ul>
-                <div className="card-body">
-                    <a href="#" className="card-link">Card link</a>
-                    <a href="#" className="card-link">Another link</a>
-              </div>
-            </div>
-        </>    
-    )
-}
+export const Cellar = ({
+  name,
+  description,
+  location,
+  size,
+  availability,
+  price,
+}) => {
+  return (
+    <>
+      <div className="card" style={{ width: "18rem" }}>
+        {/* <img className="card-img-top" src="../../assets/bodega1.png" alt="Card image cap"/> */}
+        <div className="card-body">
+          <h5 className="card-title">{name}</h5>
+          <p className="card-text">{description}</p>
+        </div>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">{location}</li>
+          <li className="list-group-item">{size}</li>
+          <li className="list-group-item">{availability}</li>
+          <li className="list-group-item">{price}</li>
+        </ul>
+        <div className="card-body">
+          <a href="#" className="card-link">
+            {availability === "not available" ? "No disponible" : "Disponible"}
+          </a>
+          <a href="#" className="card-link">
+            Delete
+          </a>
+          <a href="#" className="card-link">
+            Update
+          </a>
+        </div>
+      </div>
+    </>
+  );
+};
