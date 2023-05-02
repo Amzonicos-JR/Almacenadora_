@@ -1,14 +1,13 @@
 import React from "react";
 
 export const Lease = ({
-  _id,
   account = {},
   cellar = {},
   user = {},
   total,
 }) => {
+
   const {
-    _id: idAccount,
     dpi,
     name: nameAccount,
     surname: surnameAccount,
@@ -17,7 +16,6 @@ export const Lease = ({
     email,
   } = account;
   const {
-    _id: idCellar,
     name: nameCellar,
     description,
     location,
@@ -26,7 +24,6 @@ export const Lease = ({
     price,
   } = cellar;
   const {
-    _id: idUser,
     name: nameUser,
     surname: surnameUser,
     username,
@@ -35,7 +32,8 @@ export const Lease = ({
 
   return (
     <>
-      <div className="card" style={{ width: "18rem" }}>
+      <div>
+        
         {/* <img className="card-img-top" src="../../assets/bodega1.png" alt="Card image cap"/> */}
         <div className="card-body" style={{ color: "#000" }}>
           <h5 className="card-title"></h5>
@@ -57,19 +55,7 @@ export const Lease = ({
           <li className="list-group-item">{username}</li>
           <li className="list-group-item">{total}</li>          
         </ul>
-
-        <div className="card-body">
-          <a href="#" className="card-link">
-            Desarrendar
-          </a>
-          <a href="#" className="card-link">
-            Update
-          </a>
-          <a href="#" className="card-link">
-            Delete
-          </a>
         </div>
-      </div>
     </>
   );
 };
