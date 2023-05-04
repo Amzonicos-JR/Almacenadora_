@@ -3,12 +3,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { NotFound } from './pages/NotFound';
 import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
-import { UsersPage } from './pages/UsersPage/UsersPage'
-import { LeasesPage } from './pages/LeasesPage/LeasesPage'
 import App from './App'
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
-import { AddCellar } from './pages/CellarPage/AddCellar';
-// import { AccountPage } from './pages/AccountPage/addAccountPage';
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -17,8 +13,9 @@ export const Index = () => {
         name: '',
         username: '',
         role: ''
-      })
+    })
 
+    const [isAdmin, setIsAdmin] = useState(true);
     useEffect(() => {
         let token = localStorage.getItem('token')
         if (token) setLoggedIn(true)
@@ -28,7 +25,7 @@ export const Index = () => {
         {
             path: '/',
             element: <App />,
-            errorElement: <NotFound/>,
+            errorElement: <NotFound />,
             children: [
                 {
                     path: '/',
@@ -41,17 +38,12 @@ export const Index = () => {
                 {
                     path: '/dashboard',
                     element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>,
-                    children:[
-                        {
-                            path: 'users',
-                            element: <UsersPage></UsersPage>
-                        },                    
-                    ] 
-                }
-                // {
-                //     path: '/account',
-                //     element: <AccountPage></AccountPage>
-                // }
+                    children: [
+                        
+                         
+                    ]
+                },                
+                
             ]
         }
     ])

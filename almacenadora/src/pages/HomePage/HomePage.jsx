@@ -31,7 +31,9 @@ export const HomePage = () => {
                 <header>
                     <nav>
                         <a href="#">Inicio</a>
-                        <a href="#">¿Quienes Somos?</a>
+                        <Link to='/cellars'>
+                            <a>¿Quienes Somos?</a>
+                        </Link>
                         <a href="#">Bodegas</a>
                         <a href="#">Servicios</a>
                         <a href="#">Contacto</a>

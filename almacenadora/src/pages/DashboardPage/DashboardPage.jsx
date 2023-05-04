@@ -3,8 +3,6 @@ import "../DashboardPage/DashBoardStyle.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Index";
 import { Outlet, Link } from "react-router-dom";
-import { UsersPage } from "../UsersPage/UsersPage";
-import { LeasesPage } from "../LeasesPage/LeasesPage";
 import CellarPage from "../CellarPage/CellarPage";
 
 
@@ -12,7 +10,6 @@ export const DashboardPage = () => {
   const { setLoggedIn, dataUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(true);
-
   const [activeView, setActiveView] = useState(null);
 
   const [showScene, setShowScene] = useState({
@@ -26,6 +23,7 @@ export const DashboardPage = () => {
     setLoggedIn(false);
     navigate("/login");
   };
+
 
   const handleScene = (scene) => {
     setShowScene({
@@ -49,16 +47,7 @@ export const DashboardPage = () => {
               <button>
                 <span className="text">Control Panel</span>
               </button>
-            </li>
-            <li>
-              <button
-                onClick={() => {
-                  handleScene("user");
-                }}
-              >
-                <span className="text">USER</span>
-              </button>
-            </li>
+            </li>            
             {isAdmin ? (
               <>
                 <li>
@@ -69,16 +58,7 @@ export const DashboardPage = () => {
                   >
                     <span className="text">BODEGAS</span>
                   </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      handleScene("lease");
-                    }}
-                  >
-                    <span className="text"> ARRENDAMIENTOS </span>
-                  </button>
-                </li>
+                </li>                            
               </>
             ) : (
               <></>
