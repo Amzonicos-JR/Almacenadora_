@@ -225,7 +225,7 @@ export const TableUser = () => {
                                                     </div>
                                                     <div className="modal-footer">
                                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                        <button onClick={() => updateUser(_id)} type="button" className="btn btn-primary">Save</button>
+                                                        <button onClick={() => updateUser(_id)} type="button" className="btn btn-primary" data-bs-dismiss="modal">Save</button>
                                                     </div>
                                                 </div>
                                             </div>
