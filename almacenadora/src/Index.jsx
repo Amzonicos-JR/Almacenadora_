@@ -3,12 +3,13 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { NotFound } from './pages/NotFound';
 import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
-import { UsersPage } from './pages/UsersPage/UsersPage'
-import { LeasesPage } from './pages/LeasesPage/LeasesPage'
+// import { UsersPage } from './pages/UsersPage/UsersPage'
+// import { LeasesPage } from './pages/LeasesPage/LeasesPage'
 import App from './App'
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
-import { AddCellar } from './pages/CellarPage/AddCellar';
-// import { AccountPage } from './pages/AccountPage/addAccountPage';
+// import { AddCellar } from './pages/CellarPage/AddCellar';
+// import { AddAccountPage } from './pages/AccountPage/AddAccountPage';
+
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -42,16 +43,17 @@ export const Index = () => {
                     path: '/dashboard',
                     element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>,
                     children:[
-                        {
-                            path: 'users',
-                            element: <UsersPage></UsersPage>
-                        },                    
+                        // {
+                        //     path: 'users',
+                        //     element: <UsersPage></UsersPage>
+                        // },                    
                     ] 
-                }
+                },
                 // {
-                //     path: '/account',
-                //     element: <AccountPage></AccountPage>
+                //     path: '/add-account',
+                //     element: <AddAccountPage></AddAccountPage>
                 // }
+
             ]
         }
     ])

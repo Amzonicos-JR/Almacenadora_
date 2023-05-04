@@ -12,11 +12,6 @@ li {
 	list-style: none;
 }
 
-body
-{
-	background: #6cc7d3;
-}
-
 /* SIDEBAR */
 #sidebar {
 	position: fixed;
