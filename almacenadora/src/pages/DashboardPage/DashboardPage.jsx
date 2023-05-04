@@ -2,10 +2,8 @@ import React, { useState, useContext } from "react";
 import "../DashboardPage/DashBoardStyle.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Index";
-import { Outlet, Link } from "react-router-dom";
-import { UsersPage } from "../UsersPage/UsersPage";
 import { LeasesPage } from "../LeasesPage/LeasesPage";
-import CellarPage from "../CellarPage/CellarPage";
+
 
 
 export const DashboardPage = () => {
@@ -50,26 +48,8 @@ export const DashboardPage = () => {
                 <span className="text">Control Panel</span>
               </button>
             </li>
-            <li>
-              <button
-                onClick={() => {
-                  handleScene("user");
-                }}
-              >
-                <span className="text">USER</span>
-              </button>
-            </li>
             {isAdmin ? (
               <>
-                <li>
-                  <button
-                    onClick={() => {
-                      handleScene("cellar");
-                    }}
-                  >
-                    <span className="text">BODEGAS</span>
-                  </button>
-                </li>
                 <li>
                   <button
                     onClick={() => {
@@ -102,9 +82,7 @@ export const DashboardPage = () => {
           {isAdmin ? (
             <>
               <section id="content">
-                {activeView === "cellar" && <CellarPage />}
                 {activeView === "lease" && <LeasesPage />}
-                {activeView === "user" && <UsersPage/>}
               </section>
             </>
           ) : (

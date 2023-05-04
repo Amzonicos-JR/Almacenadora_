@@ -7,14 +7,17 @@ export const AuthContext = createContext();
 
 export const LeasesPage = () => {
   const [leases, setLeases] = useState([{}]);
+  const [account, setAccount] = useState({});
+  const [cellar, setCellar] = useState({});
+  const [user, setUser] = useState({});
+
   const [activeView, setActiveView] = useState("get");
   const [showScene, setShowScene] = useState({
     get: false,
     add: false,
     upadte: false,
   });
-  const [idLease, setIdLease] = useState("");
-  const [idCellar, setIdCellar] = useState("")
+
   const navigate = useNavigate();
 
   const headers = {
@@ -32,6 +35,46 @@ export const LeasesPage = () => {
     setActiveView(scene);
   };
 
+  //----------------------Mostrar Menus
+  const getAccounts = async () => {
+    try {
+      const { data } = await axios(
+        "http://localhost:3000/account/get-accounts"
+      );
+      if (data.accounts) {
+        console.log(data.accounts);
+        setAccount(data.accounts);
+      }
+    } catch (err) {
+      console.log(err);
+      throw new Error(err.response.message || "Error getting accounts");
+    }
+  };
+
+  const getCellars = async () => {
+    try {
+      const { data } = await axios("http://localhost:3000/cellar/get");
+      if (data.cellars) {
+        console.log(data.cellars);
+        setCellar(data.cellars);
+      }
+    } catch (err) {
+      console.log(err);
+      throw new Error(err.response.message || "Error getting cellars");
+    }
+  };
+
+  const getUser = async () => {
+    try {
+      const { data } = await axios("http://localhost:3000/user/getUsers");
+      if (data.users) {
+        console.log(data.users);
+        setUser(data.users);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
   //----------------------Mostrar
   const getLeases = async () => {
     try {
@@ -48,35 +91,37 @@ export const LeasesPage = () => {
     }
   };
 
-  useEffect(() => {
-    getLeases();
-  }, []);
+
 
   //----------------------Agregar
-  const [form, setform] = useState({
-    account: "",
-    cellar: "",
-    user: "",
-  });
-
-  const handleChange = (e) => {
-    setform({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+  const viewAddLease = async () => {
+    try {
+      handleScene("add");
+      getAccounts();
+      getCellars();
+      getUser();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const addLease = async (e) => {
     try {
       e.preventDefault();
+      let lease = {
+        account: document.getElementById("inputAccount").value,
+        cellar: document.getElementById("inputCellar").value,
+        user: document.getElementById("inputUser").value,
+      };
       const { data } = await axios.post(
         "http://localhost:3000/lease/add",
-        form
+        lease
       );
+      getAccounts();
       if (data.message) {
         alert(data.message);
         handleScene("get");
-        getLeases();
+        getLeases()
       }
     } catch (err) {
       console.log(err);
@@ -103,167 +148,205 @@ export const LeasesPage = () => {
   };
 
   //----------------------Update
-  const [form2, setform2] = useState({
-    cellar: ""
-  });
-
-  const handleChange2 = (e) => {
-    setform2({
-      ...form2,
-      [e.target.name]: e.target.value,
-    });
-  };  
+  const [idLease, setIdLease] = useState("");
   const viewUpdateLease = async (id, idCellar) => {
     try {
-      setIdLease(id)
-      setIdCellar(idCellar)
-      handleScene("update")
+      setIdLease(id);
+      handleScene("update");
+      getCellars();
     } catch (err) {
       console.log(err);
       alert(err.response?.data.message);
       throw new Error("Error to updated lease");
     }
-  }
-  const updateLease = async(e)=>{
-    try{
-      e.preventDefault()
-      const {data} = await axios.put(`http://localhost:3000/lease/update/${idLease}`, form2)
-      console.log('hola', idLease)
-      if(data.message){
-        alert('se puedo actualizar perfactamente')
-        handleScene("get")
+  };
+
+  const [idCellar, setIdCellar] = useState("");
+  const updateLease = async (e) => {
+    try {
+      let form = {
+        cellar: document.getElementById("optionIdCellar").value
+      }
+      const { data } = await axios.put(
+        `http://localhost:3000/lease/update/${idLease}`,
+        form
+      );
+      if (data.message) {
+        alert("se puedo actualizar perfactamente");
+        navigate('/')
+        handleScene("get");
         getLeases()
       }
-    }catch(err){
-      console.log(err)
-      alert(err.response?.data.message)
-      throw new Error("Error to updated lease")
+    } catch (err) {
+      console.log(err);
+      alert(err.response?.data.message);
+      throw new Error("Error to updated lease");
     }
-  }
-
+  };
+  useEffect(() => {
+    getUser();
+    getCellars();
+    getLeases();
+    getAccounts();
+  }, []);
   return (
     <>
-      <section>
-        <h1>Lease Page</h1>
+      <section className="container p-5 my-1">
+        <h1 className="text-center p-3 m-2">Lease Page</h1>
         {activeView === "add" && (
           <>
             <form>
-              <div className="form-group">
-                <label>Account</label>
-                <input
-                  onChange={handleChange}
-                  name="account"
-                  type="text"
-                  className="form-control"
-                  aria-describedby="emailHelp"
-                  placeholder="account"
-                />
+              <div className="mb-3">
+                <label htmlFor="inputAccount" className="form-label">
+                  Accounts
+                </label>
+                <select className="form-control" id="inputAccount">
+                  {account.map(({ _id, name }, i) => {
+                    return (
+                      <option key={i} value={_id}>
+                        {name}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
-              <div className="form-group">
-                <label>Cellar</label>
-                <input
-                  onChange={handleChange}
-                  name="cellar"
-                  type="text"
-                  className="form-control"
-                  placeholder="cellar"
-                />
+
+              <div className="mb-3">
+                <label htmlFor="inputCellar" className="form-label">
+                  Cellars
+                </label>
+                <select className="form-control" id="inputCellar">
+                  {cellar.map(({ _id, name, availability }, i) => {
+                    return (
+                      <>
+                        {availability === "available" && (
+                          <option key={i} value={_id}>
+                            {name}
+                          </option>
+                        )}
+                      </>
+                    );
+                  })}
+                </select>
               </div>
-              <div className="form-group">
-                <label>User</label>
-                <input
-                  onChange={handleChange}
-                  name="user"
-                  type="text"
-                  className="form-control"
-                  placeholder="user"
-                />
+
+              <div className="mb-3">
+                <label htmlFor="inputUser" className="form-label">
+                  Users
+                </label>
+                <select className="form-control" id="inputUser">
+                  {user.map(({ _id, username }, i) => {
+                    return (
+                      <option key={i} value={_id}>
+                        {username}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
-              <button
-                onClick={(e) => addLease(e)}
-                type="button"
-                className="btn btn-primary btn-lg btn-block"
-              >
-                Agregar
-              </button>
-              <button
-                onClick={() => handleScene("get")}
-                type="button"
-                className="btn btn-primary btn-lg btn-block"
-              >
-                Cancelar
-              </button>
+
+              <div>
+                <button
+                  onClick={(e) => addLease(e)}
+                  type="button"
+                  className="btn btn-primary btn-lg btn-block m-3 p-2"
+                >
+                  Agregar
+                </button>
+                <button
+                  onClick={() => handleScene("get")}
+                  type="button"
+                  className="btn btn-primary btn-lg btn-block m-3 p-2"
+                >
+                  Cancelar
+                </button>
+              </div>
             </form>
           </>
         )}
         {activeView === "get" && (
           <>
-            <button
-              onClick={() => {
-                handleScene("add");
-              }}
-              type="button"
-              className="btn btn-primary btn-lg btn-block"
-            >
-              +ADD
-            </button>
-            {leases.map(
-              ({ _id, account, cellar, Services, user, total }, i) => (
-                <>
-                  <div className="card" style={{ width: "18rem" }}>
-                    <Lease
-                      account={account}
-                      cellar={cellar}
-                      user={user}
-                      total={total}
-                    ></Lease>
-                    <div className="card-body">
-                      <button
-                        onClick={() => viewUpdateLease(_id, cellar._id)}
-                        type="button"
-                        className="btn btn-warning"
-                      >
-                        Update
-                      </button>
-                      <button
-                        onClick={() => deleteLeasa(_id)}
-                        type="button"
-                        className="btn btn-danger"
-                      >
-                        Eliminar
-                      </button>
+            <div className="row g-0 justify-content-center">
+              <button
+                onClick={() => {
+                  viewAddLease();
+                }}
+                type="button"
+                className="btn btn-primary btn-lg btn-block"
+              >
+                +ADD
+              </button>
+              {leases.map(
+                ({ _id, account, cellar, Services, user, total }, i) => (
+                  <>
+                    <div className="card m-3 g-0" style={{ width: "18rem" }}>
+                      <h5 className="text-center">{_id}</h5>
+                      <Lease
+                        account={account}
+                        cellar={cellar}
+                        user={user}
+                        total={total}
+                      ></Lease>
+                      <div className="card-body">
+                        <button
+                          onClick={() => viewUpdateLease(_id, cellar._id)}
+                          type="button"
+                          className="btn btn-warning m-1 p-2"
+                        >
+                          Update
+                        </button>
+                        <button
+                          onClick={() => deleteLeasa(_id)}
+                          type="button"
+                          className="btn btn-danger m-1 p-2"
+                        >
+                          Eliminar
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </>
-              )
-            )}
+                  </>
+                )
+              )}
+            </div>
           </>
         )}
         {activeView === "update" && (
           <>
             <form>
-              <p>{form2.cellar}</p>
-              <div className="form-group">
-                <label>Cellar</label>
-                <input
-                  name="cellar"
-                  onChange={handleChange2}
-                  type="email"
-                  className="form-control"
-                  placeholder="Cellar"
-                  defaultValue={idCellar}
-                />
+              <div className="mb-3">
+                <label htmlFor="inputCellarUpdate" className="form-label">
+                  Cellars
+                </label>
+                <select className="form-control" id="inputCellarUpdate">
+                  {cellar.map(({ _id, name, availability }, i) => {
+                    return (
+                      <>
+                        {availability === "available" && (
+                          <option key={i} value={_id} id="optionIdCellar">
+                            {name}
+                          </option>
+                        )}
+                      </>
+                    );
+                  })}
+                </select>
               </div>
-              <button onClick={(e) => updateLease(e)} className="btn btn-primary">
-                Update
-              </button>
-              <button
-                onClick={() => handleScene("get")}
-                type="submit"
-                className="btn btn-primary"
-              >
-                Cancelar
-              </button>
+
+              <div className="form-group">
+                <button
+                  onClick={(e) => updateLease(e)}
+                  className="btn btn-primary m-2"
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => handleScene("get")}
+                  type="submit"
+                  className="btn btn-primary m-2"
+                >
+                  Cancelar
+                </button>
+              </div>
             </form>
           </>
         )}

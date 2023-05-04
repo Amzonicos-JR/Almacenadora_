@@ -3,7 +3,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { NotFound } from './pages/NotFound';
 import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
-import { UsersPage } from './pages/UsersPage/UsersPage'
 import App from './App'
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
 // import { AccountPage } from './pages/AccountPage/addAccountPage';
