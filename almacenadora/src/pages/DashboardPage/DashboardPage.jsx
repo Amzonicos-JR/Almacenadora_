@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Index";
 import { LeasesPage } from "../LeasesPage/LeasesPage";
 
-
-
 export const DashboardPage = () => {
   const { setLoggedIn, dataUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -16,7 +14,7 @@ export const DashboardPage = () => {
   const [showScene, setShowScene] = useState({
     cellar: false,
     lease: false,
-    user: false
+    user: false,
   });
 
   const logOut = () => {
@@ -29,7 +27,7 @@ export const DashboardPage = () => {
     setShowScene({
       cellar: scene === "cellar",
       lease: scene === "lease",
-      user: scene === "user"
+      user: scene === "user",
     });
 
     setActiveView(scene);
@@ -52,11 +50,12 @@ export const DashboardPage = () => {
               <>
                 <li>
                   <button
+                    className="d-flex align-items-center"
                     onClick={() => {
                       handleScene("lease");
                     }}
                   >
-                    <span className="text"> ARRENDAMIENTOS </span>
+                    <span className="text">ARRENDAMIENTOS</span>
                   </button>
                 </li>
               </>
