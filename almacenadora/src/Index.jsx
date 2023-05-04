@@ -3,19 +3,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { NotFound } from './pages/NotFound';
 import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
-<<<<<<< HEAD
-// import { UsersPage } from './pages/UsersPage/UsersPage'
-// import { LeasesPage } from './pages/LeasesPage/LeasesPage'
 import App from './App'
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
-// import { AddCellar } from './pages/CellarPage/AddCellar';
-// import { AddAccountPage } from './pages/AccountPage/AddAccountPage';
-
-=======
-import App from './App'
-import { DashboardPage } from './pages/DashboardPage/DashboardPage';
-// import { AccountPage } from './pages/AccountPage/addAccountPage';
->>>>>>> jsis-2018520
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -28,15 +17,16 @@ export const Index = () => {
         role: ''
       })
 
-    useEffect(() => {
-        let token = localStorage.getItem('token')
-        if (token) setLoggedIn(true)
-    }, [])
+      const [isAdmin, setIsAdmin] = useState(true);
+      useEffect(() => {
+          let token = localStorage.getItem('token')
+          if (token) setLoggedIn(true)
+      }, [])
 
     const routes = createBrowserRouter([
         {
             path: '/',
-            element: <App />,
+            element: <App/>,
             errorElement: <NotFound/>,
             children: [
                 {
@@ -49,24 +39,8 @@ export const Index = () => {
                 },
                 {
                     path: '/dashboard',
-<<<<<<< HEAD
-                    element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>,
-                    children:[
-                        // {
-                        //     path: 'users',
-                        //     element: <UsersPage></UsersPage>
-                        // },                    
-                    ] 
-                },
-                // {
-                //     path: '/add-account',
-                //     element: <AddAccountPage></AddAccountPage>
-                // }
-
-=======
                     element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>, 
                 },
->>>>>>> jsis-2018520
             ]
         }
     ])

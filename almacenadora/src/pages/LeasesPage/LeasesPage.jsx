@@ -190,7 +190,7 @@ export const LeasesPage = () => {
   return (
     <>
       <section className="container p-5 my-1">
-        <div className="d-flex align-items-center justify-content-center" style={{color: '#333'}}>
+        <div className="d-flex align-items-center justify-content-center" style={{ color: '#333' }}>
           <h1 className="text-center p-3 m-2">Lease Page</h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -282,7 +282,7 @@ export const LeasesPage = () => {
                   viewAddLease();
                 }}
                 type="button"
-                className="btn btn-primary btn-lg btn-block"
+                className="btn btn-outline-primary btn-lg btn-block"
               >
                 +ADD
               </button>
