@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { NotFound } from './pages/NotFound';
 import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
+<<<<<<< HEAD
 // import { UsersPage } from './pages/UsersPage/UsersPage'
 // import { LeasesPage } from './pages/LeasesPage/LeasesPage'
 import App from './App'
@@ -10,10 +11,17 @@ import { DashboardPage } from './pages/DashboardPage/DashboardPage';
 // import { AddCellar } from './pages/CellarPage/AddCellar';
 // import { AddAccountPage } from './pages/AccountPage/AddAccountPage';
 
+=======
+import App from './App'
+import { DashboardPage } from './pages/DashboardPage/DashboardPage';
+// import { AccountPage } from './pages/AccountPage/addAccountPage';
+>>>>>>> jsis-2018520
 
 export const AuthContext = createContext();
 export const Index = () => {
+
     const [loggedIn, setLoggedIn] = useState(false)
+
     const [dataUser, setDataUser] = useState({
         name: '',
         username: '',
@@ -41,6 +49,7 @@ export const Index = () => {
                 },
                 {
                     path: '/dashboard',
+<<<<<<< HEAD
                     element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>,
                     children:[
                         // {
@@ -54,6 +63,10 @@ export const Index = () => {
                 //     element: <AddAccountPage></AddAccountPage>
                 // }
 
+=======
+                    element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>, 
+                },
+>>>>>>> jsis-2018520
             ]
         }
     ])

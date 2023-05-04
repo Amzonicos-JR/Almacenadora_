@@ -2,12 +2,16 @@ import React, { useState, useContext } from "react";
 import "../DashboardPage/DashBoardStyle.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Index";
+<<<<<<< HEAD
 import { Outlet, Link } from "react-router-dom";
 // import { UsersPage } from "../UsersPage/UsersPage";
 import { AccountPage } from "../AccountPage/AccountPage";
 // import { LeasesPage } from "../LeasesPage/LeasesPage";
 // import CellarPage from "../CellarPage/CellarPage";
 
+=======
+import { LeasesPage } from "../LeasesPage/LeasesPage";
+>>>>>>> jsis-2018520
 
 export const DashboardPage = () => {
   const { setLoggedIn, dataUser } = useContext(AuthContext);
@@ -17,10 +21,16 @@ export const DashboardPage = () => {
   const [activeView, setActiveView] = useState(null);
 
   const [showScene, setShowScene] = useState({
+<<<<<<< HEAD
     // cellar: false,
     // lease: false,
     // user: false,
     account: false
+=======
+    cellar: false,
+    lease: false,
+    user: false,
+>>>>>>> jsis-2018520
   });
 
   const logOut = () => {
@@ -31,10 +41,16 @@ export const DashboardPage = () => {
 
   const handleScene = (scene) => {
     setShowScene({
+<<<<<<< HEAD
       // cellar: scene === "cellar",
       // lease: scene === "lease",
       // user: scene === "user",
       account: scene === "account"
+=======
+      cellar: scene === "cellar",
+      lease: scene === "lease",
+      user: scene === "user",
+>>>>>>> jsis-2018520
     });
 
     setActiveView(scene);
@@ -53,6 +69,7 @@ export const DashboardPage = () => {
                 <span className="text">Control Panel</span>
               </button>
             </li>
+<<<<<<< HEAD
             {/* <li>
               <button
                 onClick={() => {
@@ -62,10 +79,13 @@ export const DashboardPage = () => {
                 <span className="text">USER</span>
               </button>
             </li> */}
+=======
+>>>>>>> jsis-2018520
             {isAdmin ? (
               <>
                 {/* <li>
                   <button
+<<<<<<< HEAD
                     onClick={() => {
                       handleScene("cellar");
                     }}
@@ -75,6 +95,9 @@ export const DashboardPage = () => {
                 </li> */}
                 <li>
                   <button
+=======
+                    className="d-flex align-items-center"
+>>>>>>> jsis-2018520
                     onClick={() => {
                       handleScene("account");
                     }}
@@ -88,7 +111,7 @@ export const DashboardPage = () => {
                       handleScene("lease");
                     }}
                   >
-                    <span className="text"> ARRENDAMIENTOS </span>
+                    <span className="text">ARRENDAMIENTOS</span>
                   </button>
                 </li> */}
               </>
@@ -114,8 +137,12 @@ export const DashboardPage = () => {
           {isAdmin ? (
             <>
               <section id="content">
+<<<<<<< HEAD
 
                 {activeView === "account" && <AccountPage />}
+=======
+                {activeView === "lease" && <LeasesPage />}
+>>>>>>> jsis-2018520
               </section>
             </>
           ) : (
