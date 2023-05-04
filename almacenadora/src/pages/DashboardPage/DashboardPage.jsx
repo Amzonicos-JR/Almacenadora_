@@ -3,20 +3,19 @@ import "../DashboardPage/DashBoardStyle.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Index";
 import { Outlet, Link } from "react-router-dom";
-import { UsersPage } from "../UsersPage/UsersPage";
-import { CellarsPage } from "../CellarsPage/CellarsPage";
-import { LeasesPage } from "../LeasesPage/LeasesPage";
+import UsersPage from "../UsersPage/UsersPage";
+
 
 export const DashboardPage = () => {
   const { setLoggedIn, dataUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(true);
-
   const [activeView, setActiveView] = useState(null);
 
   const [showScene, setShowScene] = useState({
     cellar: false,
     lease: false,
+    user: false
   });
 
   const logOut = () => {
@@ -25,14 +24,15 @@ export const DashboardPage = () => {
     navigate("/login");
   };
 
+
   const handleScene = (scene) => {
     setShowScene({
-      user: scene === "user",
       cellar: scene === "cellar",
       lease: scene === "lease",
+      user: scene === "user"
     });
 
-    setActiveView(scene);    
+    setActiveView(scene);
   };
 
   return (
@@ -47,34 +47,18 @@ export const DashboardPage = () => {
               <button>
                 <span className="text">Control Panel</span>
               </button>
-            </li>
-            <li>
-              <button onClick={()=>{
-                handleScene("user");
-              }}>
-                <span className="text">USER</span>
-              </button>
-            </li>
+            </li>            
             {isAdmin ? (
               <>
                 <li>
                   <button
                     onClick={() => {
-                      handleScene("cellar");
+                      handleScene("user");
                     }}
                   >
-                    <span className="text">BODEGAS</span>
+                    <span className="text">USERS</span>
                   </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      handleScene("lease");
-                    }}
-                  >
-                    <span className="text"> ARRENDAMIENTOS </span>
-                  </button>
-                </li>
+                </li>                            
               </>
             ) : (
               <></>
@@ -99,8 +83,6 @@ export const DashboardPage = () => {
             <>
               <section id="content">
                 {activeView === "user" && <UsersPage/>}
-                {activeView === "cellar" && <CellarsPage />}
-                {activeView === "lease" && <LeasesPage />}
               </section>
             </>
           ) : (
