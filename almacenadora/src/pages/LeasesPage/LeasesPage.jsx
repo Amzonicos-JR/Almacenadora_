@@ -229,7 +229,7 @@ export const LeasesPage = () => {
                   {cellar.map(({ _id, name, availability }, i) => {
                     return (
                       <>
-                        {availability === "available" && (
+                        {availability === "availability" && (
                           <option key={i} value={_id}>
                             {name}
                           </option>

@@ -7,6 +7,7 @@ import { AccountPage } from "../AccountPage/AccountPage";
 import { LeasesPage } from "../LeasesPage/LeasesPage";
 import UsersPage from "../UsersPage/UsersPage";
 import { ServicePage } from "../ServicesPage/ServicesPage";
+import CellarPage from "../CellarPage/CellarPage";
 
 export const DashboardPage = () => {
   const { setLoggedIn, dataUser } = useContext(AuthContext);
@@ -127,9 +128,11 @@ export const DashboardPage = () => {
               <section id="content">
 
                 {activeView === "account" && <AccountPage />}
+                {activeView === "cellar" && < CellarPage/>}
                 {activeView === "lease" && <LeasesPage />}
                 {activeView === "user" && <UsersPage />}
                 {activeView === "service" && <ServicePage />}
+
               </section>
             </>
           ) : (
