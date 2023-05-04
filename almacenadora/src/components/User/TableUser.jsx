@@ -25,8 +25,7 @@ export const TableUser = () => {
                 surname: document.getElementById('inputSurname').value,
                 username: document.getElementById('inputUsername').value,
                 password: document.getElementById('inputPassword').value,
-                phone: document.getElementById('inputPhone').value,
-                role: document.getElementById('inputRole').value
+                phone: document.getElementById('inputPhone').value
             }
             const { data } = await axios.post('http://localhost:3000/user/save', users)
             alert(data.message)
@@ -43,7 +42,7 @@ export const TableUser = () => {
             if (confirmDelete) {
                 const { data } = await axios.delete(`http://localhost:3000/user/delete/${id}`)
                 getUsers()
-                alert(`${data.message}: ${data.userDeleted.username}`)
+                alert(`${data.message}`)
             }
         } catch (err) {
             console.error(err)
@@ -56,8 +55,7 @@ export const TableUser = () => {
                 document.getElementById('inputSurname').value = '',
                 document.getElementById('inputUsername').value = '',
                 document.getElementById('inputPassword').value = '',
-                document.getElementById('inputPhone').value = '',
-                document.getElementById('inputRole').value = ''
+                document.getElementById('inputPhone').value = ''
         } catch (error) {
             console.log(error)
         }
@@ -112,10 +110,6 @@ export const TableUser = () => {
                                         <label htmlFor="inputPhone" className="form-label">Phone</label>
                                         <input type="text" className="form-control" id="inputPhone" required />
                                     </div>
-                                    <div>
-                                        <label htmlFor="inputRole" className="form-label">Role</label>
-                                        <input type="text" className="form-control" id="inputRole" required />
-                                    </div>
                                 </form>
                             </div>
                             <div className="modal-footer">
@@ -150,7 +144,7 @@ export const TableUser = () => {
                                         phone: document.getElementById('inputPhoneUp').value
                                     }
                                     const { data } = await axios.put(`http://localhost:3000/user/update/${idUser}`, userUp)
-                                    alert('Updated Sucessfully')
+                                    alert(data.message)
                                     getUsers()
                                     resetUp()
                                 } catch (err) {

@@ -292,6 +292,7 @@ export const LeasesPage = () => {
                     <div className="card m-3 g-0" style={{ width: "18rem" }}>
                       <h6 className="text-center p-2 m-2">{_id}</h6>
                       <Lease
+                        key={i}
                         account={account}
                         cellar={cellar}
                         user={user}

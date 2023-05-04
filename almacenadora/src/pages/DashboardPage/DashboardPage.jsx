@@ -73,7 +73,7 @@ export const DashboardPage = () => {
                       handleScene("cellar");
                     }}
                   >
-                    <span className="text">Cellars</span>
+                    <span className="text">CELLARS</span>
                   </button>
                 </li>
                 <li>
@@ -82,7 +82,7 @@ export const DashboardPage = () => {
                       handleScene("account");
                     }}
                   >
-                    <span className="text">Accounts</span>
+                    <span className="text">ACCOUNTS</span>
                   </button>
                 </li>
                 <li>
@@ -91,7 +91,7 @@ export const DashboardPage = () => {
                       handleScene("lease");
                     }}
                   >
-                    <span className="text">ARRENDAMIENTOS</span>
+                    <span className="text">LEASES</span>
                   </button>
                 </li>
                 <li>
@@ -100,7 +100,7 @@ export const DashboardPage = () => {
                       handleScene("service");
                     }}
                   >
-                    <span className="text">Servicios</span>
+                    <span className="text">SERVICES</span>
                   </button>
                 </li>
               </>
@@ -111,12 +111,12 @@ export const DashboardPage = () => {
           <ul className="side-menu top">
             <li>
               <button>
-                <span className="text">Settings</span>
+                <span className="text">SETTINGS</span>
               </button>
             </li>
             <li>
               <button onClick={logOut}>
-                <span className="text">LogOut</span>
+                <span className="text">LOGOUT</span>
               </button>
             </li>
           </ul>
